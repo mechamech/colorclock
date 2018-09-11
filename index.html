@@ -9,29 +9,34 @@
 </head>
 
 <body>
-  <div id="clock">
-  	<span id="hour"></span><span class="clock_separator">:</span><span id="minutes"></span><span class="clock_separator">:</span><span id="seconds"></span>
-  </div>
-	<div id="lightnessControl">
-		<span class="text">set color lightness:</span>
-		<input type="range" id="lightnessSlider" min="10" max="90">
-		<span class="text" id="lightnessValue">50%</span>
-	</div>
-  <div id="backgroundStyleToggle" class="text button">Switch to gradient</div>
-  <div id="timeEncodingToggle" class="text button">Current mode: Hue wheel - Change</div>
+  <div id="container">
+    <div id="clock">
+    	<span id="hour"></span><span class="clock_separator">:</span><span id="minutes"></span><span class="clock_separator">:</span><span id="seconds"></span>
+    </div>
+    <div id="controls" class="closed">
+      <div class="menuButton"><</div>
+      <div id="lightnessControl">
+        <div class="text">set color lightness:</div>
+        <input type="range" id="lightnessSlider" min="10" max="90">
+        <div class="text" id="lightnessValue">50%</div>
+      </div>
+      <div id="backgroundStyleToggle" class="text button">Switch to gradient</div>
+      <div id="timeEncodingToggle" class="text button">Current mode: hueWheel - Change</div>
+    </div>
 
-  <div id="explainerButton" class="text">?</div>
-  <div id="explainer" class="text">
-  	???
-    <p>Color Clock is currently under construction. It's a clock with a background color somehow derived from the current time. So far I've implemented two ways of doing this: <b>time to hex</b> and <b>hue wheel</b></p>
-  	<b>Time to hex</b>
-  	<p>The current time is flattened into a six-character string and appended to a pound sign in order to be used as a hex color value. 13:43:06 becomes #134306.</p>
-  	<b>Hue wheel</b>
-  	<p>Each hour (0-23) is mapped to the hue wheel (0-359). It's like a 24-hour-clock superimposed into the hue wheel.</p>
-    <b>just_pink</b>
-    <p>For testing purposes. I could take it out but I kinda like it.</p>
-    <b>Gradient mode</b>
-    <p>Makes a pretty gradient by adding a second color that is a bit further (30 degrees) in the hue wheel.</p>
+    <div id="explainerButton" class="text">?</div>
+    <div id="explainer" class="text">
+    	???
+      <p>Color Clock is currently under construction. It's a clock with a background color somehow derived from the current time. So far I've implemented two ways of doing this: <span class="bold">time to hex</span> and <span class="bold">hue wheel</span></p>
+    	<p class="bold">Time to hex</p>
+    	<p>The current time is flattened into a six-character string and appended to a pound sign in order to be used as a hex color value. 13:43:06 becomes #134306.</p>
+    	<p class="bold">Hue wheel</p>
+    	<p>Each hour (0-23) is mapped to the hue wheel (0-359). It's like a 24-hour-clock superimposed into the hue wheel.</p>
+      <p class="bold">just_pink</p>
+      <p>For testing purposes. I could take it out but I kinda like it.</p>
+      <p class="bold">Gradient mode</p>
+      <p>Makes a pretty gradient by adding a second color that is a bit further (30 degrees) in the hue wheel.</p>
+    </div>
   </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

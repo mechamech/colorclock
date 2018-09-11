@@ -2,47 +2,92 @@
   --background: hsl(0, 0%, 100%);
 }
 
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body {
 	text-align:center;
   background:var(--background);
+  user-select:none;
+}
+
+#container {
+  position:relative;
+  overflow:hidden;
 }
 
 #clock {
+  height:100vh;
 	color:white;
-	margin-top:40vh;	
+	display:flex;
+  align-items:center;
+  justify-content:center;
 	font-size:120px;
 	font-family:Inconsolata;
 }
 
-#lightnessControl {
-  width:40%;
-  margin-left:29vw;
+#controls {
+  position:absolute;
+  right:0;
+  top:0;
+  width:20%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  transform:translateX(0);
+  background-color:rgba(0, 0, 0, .3);
+  transition:1s ease-in-out;
+}
+
+#controls.closed {
+  transform:translateX(calc(100% - 45px));
+  background-color:transparent;
+  transition:1s ease-in-out;
+}
+
+.menuButton {
+  color:white;
+  font-size:32px;
+  font-family:Inconsolata;
+  position:absolute;
+  top:10px;
+  left:20px;
+}
+
+#lightnessSlider {
+  width:100%;
+  margin:10px 0;
 }
 
 .text {
 	font-family:Julius Sans One;
 	font-size:12px;
 	color:white;
-	vertical-align: middle;
 }
 
-#lightnessValue {
-  position:absolute;
-  width:30px;
-  line-height: 20px;
+.bold {
+  font-weight:bold;
 }
 
 .button {
-  width:150px;
-  margin:20px auto;
+  width:60%;
   padding:10px;
   border:1px solid white;
+}
+
+.menuButton:hover, .button:hover, #explainerButton:hover {
+  cursor:pointer;
 }
 
 #explainerButton {
   position:absolute;
   bottom:20px;
-  right:20px;
+  left:20px;
   font-size:22px;
   font-weight:bold;
 }
@@ -50,14 +95,20 @@ body {
 #explainer {
   display:none;
   position:absolute;
-  width:200px;
-  height:200px;
+  width:25%;
+  height:45%;
   overflow-y:scroll;
   border:1px solid white;
-  right:40px;
-  bottom:20px;
+  left:40px;
+  bottom:45px;
   padding:5px;
   font-family:'Inconsolata';
+  font-size:16px;
+  background-color:rgba(0, 0, 0, .3);
+}
+
+p {
+  margin:10px 0;
 }
 
 .hidden {

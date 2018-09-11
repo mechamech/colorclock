@@ -146,9 +146,27 @@ function hexToHue(hex) {
   //FOR NOW
 }
 
+function toggleOptions(event) {
+	if (event.target.classList.contains('button')) {
+		return;
+	}
+
+	this.classList.toggle('closed');
+	if (this.classList.contains('closed')) {	
+		document.querySelector('.menuButton').textContent = '<'
+	}
+
+	else {
+		document.querySelector('.menuButton').textContent = '>'
+	}
+}
+
 $(document).ready(function() {
 	let clock = new Clock();
 	clock.start()
+
+	//OPEN/CLOSE MENU
+	document.querySelector('#controls').addEventListener('click', toggleOptions);
 
 	//LIGHTNESS SLIDER
 	$("#lightnessSlider").on("input", function() {
