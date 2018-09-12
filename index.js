@@ -54,8 +54,8 @@ class Clock {
 
 class color {
 	constructor(clock) {
-		this.encodingModes = ["hueCircle", "timeToHex", "just_pink"],
-		this.timeEncoding = "hueCircle",
+		this.encodingModes = ["hueWheel", "timeToHex", "just_pink"],
+		this.timeEncoding = "hueWheel",
 		this.hue = 0,
 		this.lightness = 50,
 		this.gradient = false,
@@ -66,7 +66,7 @@ class color {
 		let timeEncoding = this.timeEncoding;
 		let time = this.clock.getTime();
 		switch (timeEncoding) {
-			case 'hueCircle':
+			case 'hueWheel':
 				//every hour has a 15° segment from the hue wheel
 				//minutes determine point inside segment
 				//.25 moves forward the position inside the hue wheel the same amount every minute
@@ -147,18 +147,13 @@ function hexToHue(hex) {
 }
 
 function toggleOptions(event) {
-	if (event.target.classList.contains('button')) {
+	console.log(event.target)
+	if (event.target.classList.contains('button') || event.target.id === 'lightnessSlider') {
 		return;
 	}
 
 	this.classList.toggle('closed');
-	if (this.classList.contains('closed')) {	
-		document.querySelector('.menuButton').textContent = '<'
-	}
-
-	else {
-		document.querySelector('.menuButton').textContent = '>'
-	}
+	document.querySelector('.menuButton').classList.toggle('open');
 }
 
 $(document).ready(function() {

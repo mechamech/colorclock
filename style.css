@@ -57,6 +57,13 @@ body {
   position:absolute;
   top:10px;
   left:20px;
+  transform:rotate(180deg);
+  transition:1s ease-in-out;
+}
+
+.menuButton.open {
+  transform:rotate(0deg);
+  transition:1s ease-in-out;
 }
 
 #lightnessSlider {
